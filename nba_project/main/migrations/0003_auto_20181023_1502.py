@@ -6,34 +6,42 @@ from django.db import migrations
 
 class Migration(migrations.Migration):
 
-    dependencies = [
-        ('main', '0002_part1'),
-    ]
+    dependencies = [("main", "0002_part1")]
 
     operations = [
         migrations.AlterField(
-            model_name='part1',
-            name='que_1',
-            field=ckeditor_uploader.fields.RichTextUploadingField(verbose_name='State the Vision and Mission of the Department and Institute'),
+            model_name="part1",
+            name="que_1",
+            field=ckeditor_uploader.fields.RichTextUploadingField(
+                verbose_name="State the Vision and Mission of the Department and Institute"
+            ),
         ),
         migrations.AlterField(
-            model_name='part1',
-            name='que_2',
-            field=ckeditor_uploader.fields.RichTextUploadingField(verbose_name='State the Program Educational Objectives (PEOs)'),
+            model_name="part1",
+            name="que_2",
+            field=ckeditor_uploader.fields.RichTextUploadingField(
+                verbose_name="State the Program Educational Objectives (PEOs)"
+            ),
         ),
         migrations.AlterField(
-            model_name='part1',
-            name='que_3',
-            field=ckeditor_uploader.fields.RichTextUploadingField(verbose_name='Indicate where the Vision, Mission and PEOs are published and disseminated among stakeholders'),
+            model_name="part1",
+            name="que_3",
+            field=ckeditor_uploader.fields.RichTextUploadingField(
+                verbose_name="Indicate where the Vision, Mission and PEOs are published and disseminated among stakeholders"
+            ),
         ),
         migrations.AlterField(
-            model_name='part1',
-            name='que_4',
-            field=ckeditor_uploader.fields.RichTextUploadingField(verbose_name='State the process for defining the Vision and Mission of the Department, and PEOs of the program'),
+            model_name="part1",
+            name="que_4",
+            field=ckeditor_uploader.fields.RichTextUploadingField(
+                verbose_name="State the process for defining the Vision and Mission of the Department, and PEOs of the program"
+            ),
         ),
         migrations.AlterField(
-            model_name='part1',
-            name='que_5',
-            field=ckeditor_uploader.fields.RichTextUploadingField(verbose_name='Establish consistency of PEOs with Mission of the Department'),
+            model_name="part1",
+            name="que_5",
+            field=ckeditor_uploader.fields.RichTextUploadingField(
+                verbose_name="Establish consistency of PEOs with Mission of the Department"
+            ),
         ),
     ]

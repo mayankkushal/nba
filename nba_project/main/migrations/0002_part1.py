@@ -10,21 +10,66 @@ class Migration(migrations.Migration):
 
     dependencies = [
         migrations.swappable_dependency(settings.AUTH_USER_MODEL),
-        ('main', '0001_initial'),
+        ("main", "0001_initial"),
     ]
 
     operations = [
         migrations.CreateModel(
-            name='Part1',
+            name="Part1",
             fields=[
-                ('id', models.AutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('que_1', ckeditor.fields.RichTextField(verbose_name='State the Vision and Mission of the Department and Institute')),
-                ('que_2', ckeditor.fields.RichTextField(verbose_name='State the Program Educational Objectives (PEOs)')),
-                ('que_3', ckeditor.fields.RichTextField(verbose_name='Indicate where the Vision, Mission and PEOs are published and disseminated among stakeholders')),
-                ('que_4', ckeditor.fields.RichTextField(verbose_name='State the process for defining the Vision and Mission of the Department, and PEOs of the program')),
-                ('que_5', ckeditor.fields.RichTextField(verbose_name='Establish consistency of PEOs with Mission of the Department')),
-                ('department', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='main.Department')),
-                ('user', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to=settings.AUTH_USER_MODEL)),
+                (
+                    "id",
+                    models.AutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                (
+                    "que_1",
+                    ckeditor.fields.RichTextField(
+                        verbose_name="State the Vision and Mission of the Department and Institute"
+                    ),
+                ),
+                (
+                    "que_2",
+                    ckeditor.fields.RichTextField(
+                        verbose_name="State the Program Educational Objectives (PEOs)"
+                    ),
+                ),
+                (
+                    "que_3",
+                    ckeditor.fields.RichTextField(
+                        verbose_name="Indicate where the Vision, Mission and PEOs are published and disseminated among stakeholders"
+                    ),
+                ),
+                (
+                    "que_4",
+                    ckeditor.fields.RichTextField(
+                        verbose_name="State the process for defining the Vision and Mission of the Department, and PEOs of the program"
+                    ),
+                ),
+                (
+                    "que_5",
+                    ckeditor.fields.RichTextField(
+                        verbose_name="Establish consistency of PEOs with Mission of the Department"
+                    ),
+                ),
+                (
+                    "department",
+                    models.ForeignKey(
+                        on_delete=django.db.models.deletion.CASCADE,
+                        to="main.Department",
+                    ),
+                ),
+                (
+                    "user",
+                    models.ForeignKey(
+                        on_delete=django.db.models.deletion.CASCADE,
+                        to=settings.AUTH_USER_MODEL,
+                    ),
+                ),
             ],
-        ),
+        )
     ]
