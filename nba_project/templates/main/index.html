@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+{% load static %}
+
+
+{% block content %}
+	<form action="" method="post" class="">
+	  {% csrf_token %}
+	  {% for form, question in formset_zip %}
+	  	{{question.text|safe}}
+	  	{{form}}
+	  {% endfor %}
+	  <input type="submit" name="submit">
+	  {{ formset.management_form }}
+  </form>
+
+{% endblock content %}
+
+{% block javascript %}
+	{{block.super}}
+	<script type="text/javascript" src="{% static "ckeditor/ckeditor-init.js" %}"></script>
+	<script type="text/javascript" src="{% static "ckeditor/ckeditor/ckeditor.js" %}"></script>
+{% endblock javascript %}

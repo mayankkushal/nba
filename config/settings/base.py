@@ -71,7 +71,7 @@ THIRD_PARTY_APPS = [
 ]
 LOCAL_APPS = [
     'nba_project.users.apps.UsersAppConfig',
-    'main',
+    'nba_project.main',
     'ckeditor',
     # 'ckeditor_uploader'
 ]
@@ -108,9 +108,10 @@ AUTHENTICATION_BACKENDS = [
 # https://docs.djangoproject.com/en/dev/ref/settings/#auth-user-model
 AUTH_USER_MODEL = 'users.User'
 # https://docs.djangoproject.com/en/dev/ref/settings/#login-redirect-url
-LOGIN_REDIRECT_URL = 'users:redirect'
+LOGIN_REDIRECT_URL = 'main:index'
 # https://docs.djangoproject.com/en/dev/ref/settings/#login-url
 LOGIN_URL = 'account_login'
+ACCOUNT_EMAIL_VERIFICATION = "none"
 
 # PASSWORDS
 # ------------------------------------------------------------------------------
