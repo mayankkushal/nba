@@ -3,6 +3,7 @@
 
 
 {% block content %}
+	{{ form.description }}
 	<form action="" method="post" class="">
 	  {% csrf_token %}
 	  {% for form, question in formset_zip %}

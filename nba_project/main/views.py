@@ -26,8 +26,7 @@ class MainView(FormView):
         user = self.request.user
 
         form = Form.objects.get(user=user, department=user.department)
-        if form.has_answers():
-            return HttpResponseRedirect(reverse_lazy("main:update"))
+        context['form'] = form
 
         questions = form.questions.all()
         question_count = questions.count()
@@ -73,6 +72,7 @@ class MainUpdateView(FormView):
         context = super(MainUpdateView, self).get_context_data(**kwargs)
         user = self.request.user
         form = Form.objects.get(user=user, department=user.department)
+        context['form'] = form
         questions = form.questions.all()
         
 
