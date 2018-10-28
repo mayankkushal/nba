@@ -1,0 +1,9 @@
+{% extends "base.html" %}
+
+{% block content %}
+	<h1>{{ form.description}}</h1>
+	{% for answer  in answers %}
+		{{ answer.question.text|safe }}
+		{{ answer.text|safe }}
+	{% endfor %}
+{% endblock content %}

@@ -13,7 +13,9 @@
 	  <input type="submit" name="submit">
 	  {{ formset.management_form }}
   </form>
-
+  {% if form.has_answers %}
+ 		<a href="{% url "main:view" %}" class="btn btn-primary">Viewing Mode</a>	
+  {% endif %}
 {% endblock content %}
 
 {% block javascript %}

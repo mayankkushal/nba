@@ -19,11 +19,15 @@ class Form(models.Model):
     department = models.ForeignKey("department", on_delete=models.CASCADE)
     user = models.ForeignKey('users.User', on_delete=None)
 
-    def has_answers(self):
+    def get_answers(self):
         answers = list()
         for que in self.questions.all():
             if que.answers.all():
                 answers.extend(que.answers.all())
+        return answers
+
+    def has_answers(self):
+        answers = self.get_answers()
         if answers:
             return True
         return False

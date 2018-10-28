@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from django.views.generic import FormView
+from django.views.generic import FormView, TemplateView
 from django.forms.models import modelformset_factory
 from django.http import HttpResponseRedirect
 from django.urls import reverse_lazy
@@ -107,3 +107,14 @@ class MainUpdateView(FormView):
                     ans.text = text
                     ans.save()
         return HttpResponseRedirect(reverse_lazy("main:update"))
+
+
+class AnswersView(TemplateView):
+    template_name = "main/answers.html"
+
+    def get_context_data(self, **kwargs):
+        context = super(AnswersView, self).get_context_data(**kwargs)
+        form = Form.objects.get(user=self.request.user, department=self.request.user.department)
+        context['answers'] = form.get_answers()
+        context['form'] = form
+        return context
