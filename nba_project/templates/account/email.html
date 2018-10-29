@@ -7,7 +7,7 @@
 {% block head_title %}{% trans "Account" %}{% endblock %}
 
 {% block inner %}
-<h1>{% trans "E-mail Addresses" %}</h1>
+<h1 class="pt-5">{% trans "E-mail Addresses" %}</h1>
 
 {% if user.emailaddress_set.all %}
 <p>{% trans 'The following e-mail addresses are associated with your account:' %}</p>
@@ -24,11 +24,11 @@
 
     {{ emailaddress.email }}
     {% if emailaddress.verified %}
-    <span class="verified">{% trans "Verified" %}</span>
+    <span class="pl-5 verified">Status: {% trans "Verified" %}</span>
     {% else %}
     <span class="unverified">{% trans "Unverified" %}</span>
     {% endif %}
-    {% if emailaddress.primary %}<span class="primary">{% trans "Primary" %}</span>{% endif %}
+    {% if emailaddress.primary %}<span class="primary pl-5">{% trans "Primary" %}</span>{% endif %}
   </label>
 </div>
   {% endfor %}

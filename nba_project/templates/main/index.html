@@ -3,19 +3,19 @@
 
 
 {% block content %}
-	{{ form.description }}
-	<form action="" method="post" class="">
-	  {% csrf_token %}
-	  {% for form, question in formset_zip %}
-	  	{{question.text|safe}}
-	  	{{form}}
-	  {% endfor %}
-	  <input type="submit" name="submit">
-	  {{ formset.management_form }}
-  </form>
-  {% if form.has_answers %}
+	<h3 class="pt-5">Form: {{ form.description | title}}</h3>
+	<form action="" method="post" class="pt-2">
+	  	{% csrf_token %}
+	  	{% for form, question in formset_zip %}
+	  		{{forloop.counter}}. {{question.text|safe}}
+	  		{{form}}
+	  	{% endfor %}<br>
+	  	<input class="btn btn-success" type="submit" name="submit">
+	  	{{ formset.management_form }}
+  	</form>
+  	{% if form.has_answers %}
  		<a href="{% url "main:view" %}" class="btn btn-primary">Viewing Mode</a>	
-  {% endif %}
+  	{% endif %}
 {% endblock content %}
 
 {% block javascript %}

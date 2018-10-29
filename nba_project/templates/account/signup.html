@@ -6,18 +6,46 @@
 {% block head_title %}{% trans "Signup" %}{% endblock %}
 
 {% block inner %}
-<h1>{% trans "Sign Up" %}</h1>
+<h1 class="center pt-5">{% trans "Sign Up" %}</h1>
 
-<p>{% blocktrans %}Already have an account? Then please <a href="{{ login_url }}">sign in</a>.{% endblocktrans %}</p>
+<p class="center">{% blocktrans %}Already have an account? Then please <a href="{{ login_url }}">sign in</a>.{% endblocktrans %}</p>
+<div class="row">
+    <div class="col-md-12">
+        <div class="row">
+            <div class="col-md-12 mx-auto">
+                <div class="card rounded-0">
+                    <div class="card-header">
+                        <h3 class="mb-0">Sign Up</h3>
+                    </div>
+                    <div class="card-body">
+                        <form class="form" role="form" autocomplete="off" id="formLogin" novalidate="" method="POST">{% csrf_token %}
+                            <div class="form-group">
+                                <label for="uname1">Email ID</label>
+                                <input type="email" name="email" placeholder="E-mail address" class="textinput textInput form-control" required id="id_email" /> 
+                                <div class="invalid-feedback">Oops, you missed this one.</div>
+                            </div>
+                            <div class="form-group">
+                                <label>Username</label>
+                                <input type="text" name="username" placeholder="Username" autofocus="autofocus" minlength="1" maxlength="150" class="textinput textInput form-control" required id="id_username" />
+                                <div class="invalid-feedback">Enter your password</div>
+                            </div>
+                            <div class="form-group">
+                                <label>Password</label>
+                                <input type="password" name="password1" placeholder="Password" class="textinput textInput form-control" required id="id_password1" />
+                            </div>
+                            <div class="form-group">
+                                <label>Confirm Password</label>
+                                <input type="password" name="password2" placeholder="Password (again)" class="textinput textInput form-control" required id="id_password2" />
+                            </div>
+                            <button type="submit" class="btn btn-success btn-lg" id="btnLogin">Sign Up</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 
-<form class="signup" id="signup_form" method="post" action="{% url 'account_signup' %}">
-  {% csrf_token %}
-  {{ form|crispy }}
-  {% if redirect_field_value %}
-  <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
-  {% endif %}
-  <button class="btn btn-primary" type="submit">{% trans "Sign Up" %} &raquo;</button>
-</form>
 
 {% endblock %}
 
