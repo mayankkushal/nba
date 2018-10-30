@@ -1,9 +1,15 @@
 {% extends "base.html" %}
 
 {% block content %}
-	<h1>{{ form.description}}</h1>
+<div class="container form-base">
+	<h1 align="center">{{ form.description}}</h1>
 	{% for answer  in answers %}
-		{{ answer.question.text|safe }}
-		{{ answer.text|safe }}
+		<p><strong>{{ forloop.counter }})</strong>
+			<div class="card answer-card">
+			  <div class="card-header answer-header">{{ answer.question.text|safe }}</div>
+			  <div class="card-body">{{ answer.text|safe }}</div> 
+			</div>
 	{% endfor %}
+	<a href="{% url "main:update" %}" class="btn btn-primary fixed-btn">Update</a>
+</div>
 {% endblock content %}

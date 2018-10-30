@@ -3,19 +3,24 @@
 
 
 {% block content %}
-	<h3 class="pt-5">Form: {{ form.description | title}}</h3>
-	<form action="" method="post" class="pt-2">
-	  	{% csrf_token %}
-	  	{% for form, question in formset_zip %}
-	  		{{forloop.counter}}. {{question.text|safe}}
-	  		{{form}}
-	  	{% endfor %}<br>
-	  	<input class="btn btn-success" type="submit" name="submit">
-	  	{{ formset.management_form }}
-  	</form>
-  	{% if form.has_answers %}
- 		<a href="{% url "main:view" %}" class="btn btn-primary">Viewing Mode</a>	
-  	{% endif %}
+	<div class="container form-base">
+		<h3 class="pt-5" align="center">{{ form.description | title}}</h3>
+		<form action="" method="post" class="pt-2">
+		  	{% csrf_token %}
+		  	{% for form, question in formset_zip %}
+		  		<p><strong>{{forloop.counter}})</p>
+		  		<div class="card answer-card">
+				  <div class="card-header answer-header">{{ question.text|safe }}</div>
+				  <div class="card-body" align="center">{{form}}</div> 
+				</div>
+		  	{% endfor %}<br>
+		  	<input class="btn btn-success" type="submit" name="submit">
+		  	{{ formset.management_form }}
+	  	</form>
+	  	{% if form.has_answers %}
+	 		<a href="{% url "main:view" %}" class="btn btn-primary fixed-btn">Viewing Mode</a>	
+	  	{% endif %}
+	</div>
 {% endblock content %}
 
 {% block javascript %}
